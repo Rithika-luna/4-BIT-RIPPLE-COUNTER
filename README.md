@@ -24,14 +24,18 @@ In timing diagram Q0 is changing as soon as the negative edge of clock pulse is 
 
 **Procedure**
 
-/* write all the steps invloved */
+TYPE THE CODE IN THE QUARTUS SOFTWARE
+COMPILE AND RUN THE CODE
+GENERATE THE RTL VIEWER
+CREATE NODES FOR INPUT AND OUTPUT NODES TO GENERATE TIMING DIAGRAM
+FOR DIFFERENT COMBINATIONS OF INPUT GENERATE THE TIMING DIAGRAM
 
 **PROGRAM**
 
-/* Program for 4 Bit Ripple Counter and verify its truth table in quartus using Verilog programming.
 
  Developed by: RegisterNumber:
 */
+
 
 **RTL LOGIC FOR 4 Bit Ripple Counter**
 
