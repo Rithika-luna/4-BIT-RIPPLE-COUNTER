@@ -24,21 +24,74 @@ In timing diagram Q0 is changing as soon as the negative edge of clock pulse is 
 
 **Procedure**
 
-TYPE THE CODE IN THE QUARTUS SOFTWARE
-COMPILE AND RUN THE CODE
-GENERATE THE RTL VIEWER
-CREATE NODES FOR INPUT AND OUTPUT NODES TO GENERATE TIMING DIAGRAM
-FOR DIFFERENT COMBINATIONS OF INPUT GENERATE THE TIMING DIAGRAM
+1.TYPE THE CODE IN THE QUARTUS SOFTWARE
+2.COMPILE AND RUN THE CODE
+3.GENERATE THE RTL VIEWER
+4.CREATE NODES FOR INPUT AND OUTPUT NODES TO GENERATE TIMING DIAGRAM
+5.FOR DIFFERENT COMBINATIONS OF INPUT GENERATE THE TIMING DIAGRAM
 
 **PROGRAM**
+module exp1(clk, reset, q0, q1, q2, q3);
+
+input clk, reset;
+output q0, q1, q2, q3;
+
+wire nq0, nq1, nq2, nq3;
+
+not (nq0, q0);
+not (nq1, q1);
+not (nq2, q2);
+not (nq3, q3);
+
+always @(negedge clk or posedge reset)
+if (reset) q0 <= 1'b0;
+else q0 <= nq0;
+
+always @(negedge q0 or posedge reset)
+if (reset) q1 <= 1'b0;
+else q1 <= nq1;
+
+always @(negedge q1 or posedge reset)
+if (reset) q2 <= 1'b0;
+else q2 <= nq2;
+
+always @(negedge q2 or posedge reset)
+if (reset) q3 <= 1'b0;
+else q3 <= nq3;
+
+endmodule
 
 
- Developed by: RegisterNumber:
-*/
+**TRUTH TABLE**
+| Clock Pulse | Q3 | Q2 | Q1 | Q0 | Decimal |
+| ----------- | -- | -- | -- | -- | ------- |
+| Reset       | 0  | 0  | 0  | 0  | 0       |
+| 1           | 0  | 0  | 0  | 1  | 1       |
+| 2           | 0  | 0  | 1  | 0  | 2       |
+| 3           | 0  | 0  | 1  | 1  | 3       |
+| 4           | 0  | 1  | 0  | 0  | 4       |
+| 5           | 0  | 1  | 0  | 1  | 5       |
+| 6           | 0  | 1  | 1  | 0  | 6       |
+| 7           | 0  | 1  | 1  | 1  | 7       |
+| 8           | 1  | 0  | 0  | 0  | 8       |
+| 9           | 1  | 0  | 0  | 1  | 9       |
+| 10          | 1  | 0  | 1  | 0  | 10      |
+| 11          | 1  | 0  | 1  | 1  | 11      |
+| 12          | 1  | 1  | 0  | 0  | 12      |
+| 13          | 1  | 1  | 0  | 1  | 13      |
+| 14          | 1  | 1  | 1  | 0  | 14      |
+| 15          | 1  | 1  | 1  | 1  | 15      |
+| 16 → Reset  | 0  | 0  | 0  | 0  | 0       |
 
+
+ Developed by: S.RITHIKA
+ RegisterNumber: 25015482
 
 **RTL LOGIC FOR 4 Bit Ripple Counter**
+<img width="1727" height="847" alt="image" src="https://github.com/user-attachments/assets/78d8614d-9dcb-435f-a981-040a1b426965" />
 
 **TIMING DIGRAMS FOR 4 Bit Ripple Counter**
+<img width="1694" height="840" alt="image" src="https://github.com/user-attachments/assets/1bfab15b-c5c3-4094-866e-31ed0f92cba6" />
 
-**RESULTS**
+**RESULT**
+Thus the verilog code to implement  4 Bit Ripple Counter using verilog and validating their functionality using their functional tables is done
